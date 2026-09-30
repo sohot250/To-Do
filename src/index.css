@@ -61,3 +61,22 @@ button,input{font:inherit;color:inherit}
 .txt.done{text-decoration:line-through;color:var(--mute)}
 @keyframes in{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion: reduce){.row,.row-out{transition:none;animation:none}}
+
+/* --- due dates, categories, search, stats --- */
+:root{--warn-bg:#FFF3B0;--warn-fg:#6F5800}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--warn-bg:#40380F;--warn-fg:#F5DC6B}}
+:root[data-theme="dark"]{--warn-bg:#40380F;--warn-fg:#F5DC6B}
+input[type="date"]{color-scheme:light dark}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0}
+.due{display:inline-flex;align-items:center;gap:4px;border-radius:999px;padding:1px 9px;font-size:.78rem;font-weight:600;white-space:nowrap}
+.due-overdue{background:var(--high-bg);color:var(--high-fg)}
+.due-today{background:var(--warn-bg);color:var(--warn-fg)}
+.due-later{background:var(--soft);color:var(--mute)}
+.field{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px;font-size:.875rem}
+.field>span{color:var(--mute);min-width:68px}
+.cats{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}
+.cat-btn{display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:10px;color:var(--mute);white-space:nowrap;font-size:.92rem;transition:all .15s}
+.cat-btn:hover{background:var(--soft)}
+.cat-btn[aria-pressed="true"]{background:var(--card);color:var(--ink);box-shadow:var(--shadow);font-weight:600}
+.cat-btn .cnt{margin-left:auto;padding-left:6px;font-size:.78rem;opacity:.8}
+@media (min-width:768px){.cats{flex-direction:column;overflow:visible}}
